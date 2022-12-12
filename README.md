@@ -1,7 +1,8 @@
 # [irvanalfaridzi.com](https://cool-daifuku-b48c05.netlify.app/#/)
 
 The source code of my personal website, developed with Flutter 💙
-Gi check the live version [here](https://cool-daifuku-b48c05.netlify.app/#/) 🤙🏻
+
+Go check the live version [here](https://cool-daifuku-b48c05.netlify.app/#/) 🤙🏻
 
 ## Getting Started
 
