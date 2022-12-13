@@ -33,6 +33,7 @@ class _BasePageState extends State<BasePage> {
     setState(() {
       namePage = NamePage.homePage;
       jumpToTop();
+      width = 500;
     });
   }
 
@@ -40,6 +41,7 @@ class _BasePageState extends State<BasePage> {
     setState(() {
       namePage = NamePage.aboutPage;
       jumpToTop();
+      width = 500;
     });
   }
 
@@ -47,6 +49,7 @@ class _BasePageState extends State<BasePage> {
     setState(() {
       namePage = NamePage.projectPage;
       jumpToTop();
+      width = 500;
     });
   }
 
@@ -124,7 +127,7 @@ class _BasePageState extends State<BasePage> {
       child: AnimatedPositioned(
         left: -width,
         duration: const Duration(
-          milliseconds: 200,
+          milliseconds: 400,
         ),
         child: Container(
           width: MediaQuery.of(context).size.width,
