@@ -1,4 +1,31 @@
+import 'package:alfaridzi_me/utils/environment.dart';
+import 'package:flutter/material.dart';
+
 class Constant {
+  static final navigatorKey = GlobalKey<NavigatorState>();
+  static String appName = 'Irvan Alfaridzi';
+  static const bool showLog = true;
+
+  static const String get = 'GET';
+  static const String post = 'POST';
+
+  // RESPONSE CODE
+  static const String rSUCCESS = '200';
+  static const String rTIMEOUT = '404';
+  static const String rREFUSED = 'Connection refused';
+  static const String rFAILED = 'Connection failed';
+  static const String rSOCKETEXC = 'SocketException';
+  static const String rEXCEPT = 'Exception:';
+  static const String errSERVER = '500';
+
+  //route definition
+  static String _databaseRoute(String path) => "databases/$path/query";
+
+  // PATH ENDPOINT
+  static String get listExperience => _databaseRoute(Environment.experienceKey);
+  static String get listTechTools => _databaseRoute(Environment.techToolsKey);
+
+  // helper
   static String? encodeQueryParameters(Map<String, String> params) {
     return params.entries
         .map((MapEntry<String, String> e) =>

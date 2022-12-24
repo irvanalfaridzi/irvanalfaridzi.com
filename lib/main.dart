@@ -1,9 +1,14 @@
 import 'package:alfaridzi_me/responsive/base_page.dart';
+import 'package:alfaridzi_me/services/locator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 void main() async {
-  await dotenv.load();
+  WidgetsFlutterBinding.ensureInitialized();
+  await Future.wait([
+    dotenv.load(),
+    setupLocator(),
+  ]);
   runApp(const MyApp());
 }
 
