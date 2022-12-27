@@ -3,6 +3,7 @@ part of 'models.dart';
 class Experience {
   final int no;
   final String title;
+  final String role;
   final String date;
   final String description;
   final String urlWebsite;
@@ -16,6 +17,7 @@ class Experience {
   Experience({
     this.no = 0,
     this.title = "",
+    this.role = "",
     this.date = "",
     this.description = "",
     this.urlWebsite = "",
@@ -28,6 +30,7 @@ class Experience {
   });
 }
 
+// dummy data of experience
 List<Experience> experienceList = [
   Experience(
     no: 3,

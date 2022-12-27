@@ -13,6 +13,7 @@ class AboutPage extends StatefulWidget {
 
 class _AboutPageState extends State<AboutPage> {
   bool onHovered = false;
+  final Repository client = Repository();
 
   @override
   Widget build(BuildContext context) {
@@ -146,34 +147,51 @@ class _AboutPageState extends State<AboutPage> {
             Padding(
               padding: EdgeInsets.symmetric(
                   horizontal: constraints.maxWidth > 1100 ? 100.0 : 0),
-              child: Column(
-                  children: experienceList
-                      .map(
-                        (e) => Column(
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.symmetric(
-                                  horizontal:
-                                      constraints.maxWidth > 1100 ? 0.0 : 0),
-                              child: ExperienceItem(
-                                no: e.no.toString(),
-                                onTap: () {
-                                  widget.onTap(e);
-                                },
-                                experience: e,
-                                horizontalGap: constraints.maxWidth > 1100
-                                    ? 100.0
-                                    : constraints.maxWidth <= 500
-                                        ? 20
-                                        : 50,
-                              ),
+              child: FutureBuilder<List<Experience>>(
+                future: client.getListExperience(),
+                builder: (context, snapshot) {
+                  List<Experience>? data = snapshot.data;
+                  if (!snapshot.hasData) {
+                    return Center(
+                      child: Common.loadingWidget,
+                    );
+                  } else if (data?.length == null) {
+                    return const Center(
+                      child: Text("Empty"),
+                    );
+                  }
+
+                  return Column(
+                      children: data!
+                          .map(
+                            (e) => Column(
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: constraints.maxWidth > 1100
+                                          ? 0.0
+                                          : 0),
+                                  child: ExperienceItem(
+                                    no: e.no.toString(),
+                                    onTap: () {
+                                      widget.onTap(e);
+                                    },
+                                    experience: e,
+                                    horizontalGap: constraints.maxWidth > 1100
+                                        ? 100.0
+                                        : constraints.maxWidth <= 500
+                                            ? 20
+                                            : 50,
+                                  ),
+                                ),
+                                const Divider(),
+                              ],
                             ),
-                            const Divider(),
-                          ],
-                        ),
-                      )
-                      .toList()),
-            )
+                          )
+                          .toList());
+                },
+              ),
+            ),
           ],
         );
       }),

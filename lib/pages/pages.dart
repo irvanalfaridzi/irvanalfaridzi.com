@@ -1,4 +1,5 @@
-import 'package:alfaridzi_me/models/models.dart';
+import 'package:alfaridzi_me/data/models/models.dart';
+import 'package:alfaridzi_me/data/repositories/repository.dart';
 import 'package:alfaridzi_me/responsive/responsive_layout.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';

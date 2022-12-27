@@ -1,4 +1,4 @@
-import 'package:alfaridzi_me/models/models.dart';
+import 'package:alfaridzi_me/data/models/models.dart';
 import 'package:alfaridzi_me/pages/pages.dart';
 import 'package:flutter/material.dart';
 

@@ -1,4 +1,4 @@
-import 'package:alfaridzi_me/models/models.dart';
+import 'package:alfaridzi_me/data/models/models.dart';
 import 'package:alfaridzi_me/responsive/responsive_layout.dart';
 import 'package:alfaridzi_me/utils/common.dart';
 import 'package:alfaridzi_me/utils/constant.dart';
