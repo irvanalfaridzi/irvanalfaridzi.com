@@ -12,95 +12,25 @@ class AboutPage extends StatefulWidget {
 }
 
 class _AboutPageState extends State<AboutPage> {
-  bool onHovered = false;
   final Repository client = Repository();
 
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: ((context, constraints) {
+        final double horizontalExperienceGap = constraints.maxWidth > 1100
+            ? 100.0
+            : constraints.maxWidth <= 500
+                ? 20
+                : 50;
         return Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Center(
-              child: Text(
-                "Flutter Enthusiast",
-                style: TextStyle(
-                  fontSize: 60,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                ),
-                textAlign: TextAlign.center,
-              ),
-            ),
-            const SizedBox(height: 50),
-            Padding(
-              padding: Common.paddingBase(constraints),
-              child: const Text(
-                "I'm a Mobile Developer using Flutter with great passion.",
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.black54,
-                  height: 1.5,
-                ),
-                textAlign: TextAlign.left,
-              ),
-            ),
-            const SizedBox(height: 20),
-            Padding(
-              padding: Common.paddingBase(constraints),
-              child: Text.rich(
-                TextSpan(
-                  text:
-                      "I'm living in Surabaya, Indonesia. During my free time, I like playing basketball, watching movies/anime, and doing some research ",
-                  style: const TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.black54,
-                    height: 1.5,
-                  ),
-                  children: [
-                    TextSpan(
-                        text: "projects",
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w700,
-                          color: Colors.black,
-                          height: 1.5,
-                          decoration:
-                              onHovered ? null : TextDecoration.underline,
-                        ),
-                        onEnter: ((event) {
-                          setState(() {
-                            onHovered = true;
-                          });
-                        }),
-                        onExit: (event) {
-                          setState(() {
-                            onHovered = false;
-                          });
-                        },
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () {
-                            launchInBrowser(Constant.urlGithub());
-                          }),
-                    const TextSpan(
-                      text: ".",
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.black54,
-                        height: 1.5,
-                      ),
-                    ),
-                  ],
-                ),
-                textAlign: TextAlign.left,
-              ),
-            ),
-            // technologies
+            // About Section
+            AboutSection(boxConstraints: constraints),
+
+            // Technologies Section
             const SizedBox(height: 120),
             const Center(
               child: Text(
@@ -152,49 +82,49 @@ class _AboutPageState extends State<AboutPage> {
                 builder: (context, snapshot) {
                   List<Experience>? data = snapshot.data;
                   if (!snapshot.hasData) {
-                    return Center(
-                      child: Common.loadingWidget,
-                    );
-                  } else if (data?.length == null) {
+                    return Skeleton.experienceSkeleton(horizontalExperienceGap);
+                  } else if (data!.isEmpty) {
                     return const Center(
-                      child: Text("Empty"),
+                      child: Text(
+                        "Go get experience!",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black54,
+                          height: 1.5,
+                        ),
+                      ),
                     );
                   }
 
-                  return Column(
-                      children: data!
-                          .map(
-                            (e) => Column(
-                              children: [
-                                Padding(
-                                  padding: EdgeInsets.symmetric(
-                                      horizontal: constraints.maxWidth > 1100
-                                          ? 0.0
-                                          : 0),
-                                  child: ExperienceItem(
-                                    no: e.no.toString(),
-                                    onTap: () {
-                                      widget.onTap(e);
-                                    },
-                                    experience: e,
-                                    horizontalGap: constraints.maxWidth > 1100
-                                        ? 100.0
-                                        : constraints.maxWidth <= 500
-                                            ? 20
-                                            : 50,
-                                  ),
-                                ),
-                                const Divider(),
-                              ],
-                            ),
-                          )
-                          .toList());
+                  return _listExperienceWidget(data, horizontalExperienceGap);
                 },
               ),
             ),
           ],
         );
       }),
+    );
+  }
+
+  Column _listExperienceWidget(
+      List<Experience> data, double horizontalExperienceGap) {
+    return Column(
+      children: [
+        Column(
+            children: data
+                .map(
+                  (e) => ExperienceItem(
+                    no: e.no.toString(),
+                    onTap: () {
+                      widget.onTap(e);
+                    },
+                    experience: e,
+                    horizontalGap: horizontalExperienceGap,
+                  ),
+                )
+                .toList()),
+      ],
     );
   }
 

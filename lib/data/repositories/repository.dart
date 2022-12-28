@@ -33,13 +33,15 @@ class Repository {
             no: result.results.length - i,
             title: data.properties.getCompanyName,
             role: data.properties.getRole,
-            date: data.properties.getStartDate,
+            date:
+                "${data.properties.getStartDate} - ${data.properties.getEndDate}",
             description: data.properties.getDescription,
           ),
         );
       }
       return experience;
     } on DioError catch (e) {
+      print("error apa ini:  $e");
       throw Exception(Utility.handleError(e));
     }
   }

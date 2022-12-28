@@ -29,7 +29,6 @@ class CallService {
       }
       return response;
     } on DioError catch (e) {
-      print("apa ini: $e");
       if (Constant.showLog) Config.log(Utility.handleError(e));
       throw Exception(Utility.handleError(e));
     }
