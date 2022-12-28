@@ -41,7 +41,6 @@ class Repository {
       }
       return experience;
     } on DioError catch (e) {
-      print("error apa ini:  $e");
       throw Exception(Utility.handleError(e));
     }
   }
