@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class Constant {
   static final navigatorKey = GlobalKey<NavigatorState>();
   static String appName = 'Irvan Alfaridzi';
-  static const bool showLog = true;
+  static bool showLog = Environment.showLog;
 
   static const String get = 'GET';
   static const String post = 'POST';

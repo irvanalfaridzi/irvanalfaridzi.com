@@ -15,8 +15,6 @@ class CallService {
       Response<dynamic> response;
       var json = data;
 
-      if (Constant.showLog) Config.log('paramsss $json');
-
       switch (method) {
         case Constant.get:
           response = await apiClient.get(path, json);
