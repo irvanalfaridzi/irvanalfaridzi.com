@@ -10,7 +10,7 @@ class ApiClient {
     dio.options.baseUrl = Config.currentUrl;
 
     // must comment on this for handling interceptor Error: Bad state: Future already completed
-    // will investigate this in the future for the best practice
+    // TODO: will investigate this in the future for the best practice
     // dio.options.connectTimeout = Config.connectTimeout;
 
     dio.options.receiveTimeout = Config.receiveTimeout;
