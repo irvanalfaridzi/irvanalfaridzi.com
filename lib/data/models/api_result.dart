@@ -19,7 +19,7 @@ class ApiResult {
   final dynamic nextCursor;
   final bool hasMore;
   final String type;
-  final Page page;
+  final PageApi page;
 
   factory ApiResult.fromJson(Map<String, dynamic> json) => ApiResult(
         object: json["object"],
@@ -28,7 +28,7 @@ class ApiResult {
         nextCursor: json["next_cursor"],
         hasMore: json["has_more"],
         type: json["type"],
-        page: Page.fromJson(json["page"]),
+        page: PageApi.fromJson(json["page"]),
       );
 
   Map<String, dynamic> toJson() => {
@@ -41,10 +41,10 @@ class ApiResult {
       };
 }
 
-class Page {
-  Page();
+class PageApi {
+  PageApi();
 
-  factory Page.fromJson(Map<String, dynamic> json) => Page();
+  factory PageApi.fromJson(Map<String, dynamic> json) => PageApi();
 
   Map<String, dynamic> toJson() => {};
 }
@@ -55,11 +55,8 @@ class Result {
     required this.id,
     required this.createdTime,
     required this.lastEditedTime,
-    required this.createdBy,
-    required this.lastEditedBy,
     required this.cover,
     required this.icon,
-    required this.parent,
     required this.archived,
     required this.properties,
     required this.url,
@@ -69,11 +66,8 @@ class Result {
   final String id;
   final DateTime createdTime;
   final DateTime lastEditedTime;
-  final TedBy createdBy;
-  final TedBy lastEditedBy;
   final dynamic cover;
   final dynamic icon;
-  final Parent parent;
   final bool archived;
   final Properties properties;
   final String url;
@@ -83,11 +77,8 @@ class Result {
         id: json["id"],
         createdTime: DateTime.parse(json["created_time"]),
         lastEditedTime: DateTime.parse(json["last_edited_time"]),
-        createdBy: TedBy.fromJson(json["created_by"]),
-        lastEditedBy: TedBy.fromJson(json["last_edited_by"]),
         cover: json["cover"],
         icon: json["icon"],
-        parent: Parent.fromJson(json["parent"]),
         archived: json["archived"],
         properties: Properties.fromJson(json["properties"]),
         url: json["url"],
@@ -98,54 +89,11 @@ class Result {
         "id": id,
         "created_time": createdTime.toIso8601String(),
         "last_edited_time": lastEditedTime.toIso8601String(),
-        "created_by": createdBy.toJson(),
-        "last_edited_by": lastEditedBy.toJson(),
         "cover": cover,
         "icon": icon,
-        "parent": parent.toJson(),
         "archived": archived,
         "properties": properties.toJson(),
         "url": url,
-      };
-}
-
-class TedBy {
-  TedBy({
-    required this.object,
-    required this.id,
-  });
-
-  final String object;
-  final String id;
-
-  factory TedBy.fromJson(Map<String, dynamic> json) => TedBy(
-        object: json["object"],
-        id: json["id"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "object": object,
-        "id": id,
-      };
-}
-
-class Parent {
-  Parent({
-    required this.type,
-    required this.databaseId,
-  });
-
-  final String type;
-  final String databaseId;
-
-  factory Parent.fromJson(Map<String, dynamic> json) => Parent(
-        type: json["type"],
-        databaseId: json["database_id"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "type": type,
-        "database_id": databaseId,
       };
 }
 
@@ -158,15 +106,15 @@ class Properties {
   });
 
   final JoinDate joinDate;
-  final RoleApiResult role;
+  final RichTextApi role;
   final CompanyName companyName;
-  final RoleApiResult description;
+  final RichTextApi description;
 
   factory Properties.fromJson(Map<String, dynamic> json) => Properties(
         joinDate: JoinDate.fromJson(json["Join Date"]),
-        role: RoleApiResult.fromJson(json["Role"]),
+        role: RichTextApi.fromJson(json["Role"]),
         companyName: CompanyName.fromJson(json["Company Name"]),
-        description: RoleApiResult.fromJson(json["Description"]),
+        description: RichTextApi.fromJson(json["Description"]),
       );
 
   Map<String, dynamic> toJson() => {
@@ -194,12 +142,13 @@ class CompanyName {
 
   final String id;
   final String type;
-  final List<Title> title;
+  final List<TitleApi> title;
 
   factory CompanyName.fromJson(Map<String, dynamic> json) => CompanyName(
         id: json["id"],
         type: json["type"],
-        title: List<Title>.from(json["title"].map((x) => Title.fromJson(x))),
+        title:
+            List<TitleApi>.from(json["title"].map((x) => TitleApi.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
@@ -209,25 +158,22 @@ class CompanyName {
       };
 }
 
-class Title {
-  Title({
+class TitleApi {
+  TitleApi({
     required this.type,
     required this.text,
-    required this.annotations,
     required this.plainText,
     required this.href,
   });
 
   final String type;
-  final TextApiResult text;
-  final Annotations annotations;
+  final TextApi text;
   final String plainText;
   final dynamic href;
 
-  factory Title.fromJson(Map<String, dynamic> json) => Title(
+  factory TitleApi.fromJson(Map<String, dynamic> json) => TitleApi(
         type: json["type"],
-        text: TextApiResult.fromJson(json["text"]),
-        annotations: Annotations.fromJson(json["annotations"]),
+        text: TextApi.fromJson(json["text"]),
         plainText: json["plain_text"],
         href: json["href"],
       );
@@ -235,50 +181,13 @@ class Title {
   Map<String, dynamic> toJson() => {
         "type": type,
         "text": text.toJson(),
-        "annotations": annotations.toJson(),
         "plain_text": plainText,
         "href": href,
       };
 }
 
-class Annotations {
-  Annotations({
-    required this.bold,
-    required this.italic,
-    required this.strikethrough,
-    required this.underline,
-    required this.code,
-    required this.color,
-  });
-
-  final bool bold;
-  final bool italic;
-  final bool strikethrough;
-  final bool underline;
-  final bool code;
-  final String color;
-
-  factory Annotations.fromJson(Map<String, dynamic> json) => Annotations(
-        bold: json["bold"],
-        italic: json["italic"],
-        strikethrough: json["strikethrough"],
-        underline: json["underline"],
-        code: json["code"],
-        color: json["color"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "bold": bold,
-        "italic": italic,
-        "strikethrough": strikethrough,
-        "underline": underline,
-        "code": code,
-        "color": color,
-      };
-}
-
-class TextApiResult {
-  TextApiResult({
+class TextApi {
+  TextApi({
     required this.content,
     required this.link,
   });
@@ -286,7 +195,7 @@ class TextApiResult {
   final String content;
   final dynamic link;
 
-  factory TextApiResult.fromJson(Map<String, dynamic> json) => TextApiResult(
+  factory TextApi.fromJson(Map<String, dynamic> json) => TextApi(
         content: json["content"],
         link: json["link"],
       );
@@ -306,12 +215,12 @@ class JoinDate {
 
   final String id;
   final String type;
-  final DateApiResult date;
+  final DateApi date;
 
   factory JoinDate.fromJson(Map<String, dynamic> json) => JoinDate(
         id: json["id"],
         type: json["type"],
-        date: DateApiResult.fromJson(json["date"]),
+        date: DateApi.fromJson(json["date"]),
       );
 
   Map<String, dynamic> toJson() => {
@@ -321,8 +230,8 @@ class JoinDate {
       };
 }
 
-class DateApiResult {
-  DateApiResult({
+class DateApi {
+  DateApi({
     required this.start,
     required this.end,
     required this.timeZone,
@@ -332,7 +241,7 @@ class DateApiResult {
   final DateTime? end;
   final dynamic timeZone;
 
-  factory DateApiResult.fromJson(Map<String, dynamic> json) => DateApiResult(
+  factory DateApi.fromJson(Map<String, dynamic> json) => DateApi(
         start: DateTime.parse(json["start"]),
         end: json["end"] == null ? null : DateTime.parse(json["end"]),
         timeZone: json["time_zone"],
@@ -348,8 +257,8 @@ class DateApiResult {
       };
 }
 
-class RoleApiResult {
-  RoleApiResult({
+class RichTextApi {
+  RichTextApi({
     required this.id,
     required this.type,
     required this.richText,
@@ -357,13 +266,13 @@ class RoleApiResult {
 
   final String id;
   final String type;
-  final List<Title> richText;
+  final List<TitleApi> richText;
 
-  factory RoleApiResult.fromJson(Map<String, dynamic> json) => RoleApiResult(
+  factory RichTextApi.fromJson(Map<String, dynamic> json) => RichTextApi(
         id: json["id"],
         type: json["type"],
-        richText:
-            List<Title>.from(json["rich_text"].map((x) => Title.fromJson(x))),
+        richText: List<TitleApi>.from(
+            json["rich_text"].map((x) => TitleApi.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
