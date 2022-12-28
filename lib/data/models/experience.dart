@@ -2,9 +2,9 @@ part of 'models.dart';
 
 class Experience {
   final int no;
-  final String title;
+  final String companyName;
   final String role;
-  final String date;
+  final String joinDate;
   final String description;
   final String urlWebsite;
   final List<String> hashtag;
@@ -16,9 +16,9 @@ class Experience {
 
   Experience({
     this.no = 0,
-    this.title = "",
+    this.companyName = "",
     this.role = "",
-    this.date = "",
+    this.joinDate = "",
     this.description = "",
     this.urlWebsite = "",
     this.hashtag = const [],
@@ -34,8 +34,8 @@ class Experience {
 List<Experience> experienceList = [
   Experience(
     no: 3,
-    title: 'The Software Practice Singapore',
-    date: 'Mar 2022 - Now',
+    companyName: 'The Software Practice Singapore',
+    joinDate: 'Mar 2022 - Now',
     description:
         'Software Development Engineer that focuses on working as a Mobile Developer with Flutter.',
     urlWebsite: 'https://thesoftwarepractice.com/',
@@ -60,8 +60,8 @@ List<Experience> experienceList = [
   ),
   Experience(
     no: 2,
-    title: 'PT Prima Visi Globalindo',
-    date: 'Aug 2021 - Mar 2022',
+    companyName: 'PT Prima Visi Globalindo',
+    joinDate: 'Aug 2021 - Mar 2022',
     description:
         'Developing and maintaining a Mobile Banking Application (Android/iOS) using Flutter.',
     urlWebsite: 'https://www.dwidasa.com/home',
@@ -81,8 +81,8 @@ List<Experience> experienceList = [
   ),
   Experience(
     no: 1,
-    title: 'Programmer',
-    date: 'Mar 2021 - Jul 2021',
+    companyName: 'Programmer',
+    joinDate: 'Mar 2021 - Jul 2021',
     description:
         'My first experience as Mobile Developer and also working in Startup Company.',
     urlWebsite: 'https://mamalyfe.id/',

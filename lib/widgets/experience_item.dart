@@ -40,7 +40,7 @@ class ExperienceItem extends StatelessWidget {
             children: [
               Expanded(
                 child: Text(
-                  experience.title,
+                  experience.companyName,
                   style: const TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.w700,
@@ -52,7 +52,7 @@ class ExperienceItem extends StatelessWidget {
               ),
               const SizedBox(width: 20),
               Text(
-                experience.date,
+                experience.joinDate,
                 style: const TextStyle(
                   fontSize: 12,
                   fontWeight: FontWeight.w400,

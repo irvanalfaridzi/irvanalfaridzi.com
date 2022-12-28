@@ -62,7 +62,7 @@ class _DetailExperiencePageState extends State<DetailExperiencePage> {
                     ),
               const SizedBox(height: 16),
               Text(
-                widget.experience.title,
+                widget.experience.companyName,
                 style: TextStyle(
                   fontSize: constraints.maxWidth <= 500 ? 30 : 40,
                   fontWeight: FontWeight.w800,
@@ -262,7 +262,7 @@ class _DetailExperiencePageState extends State<DetailExperiencePage> {
         ),
         const SizedBox(width: 5),
         Text(
-          widget.experience.date,
+          widget.experience.joinDate,
           style: TextStyle(
             fontSize: constraints.maxWidth <= 500 ? 14 : 16,
             fontWeight: FontWeight.w400,
