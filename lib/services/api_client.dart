@@ -8,7 +8,11 @@ class ApiClient {
   ApiClient() {
     dio = Dio();
     dio.options.baseUrl = Config.currentUrl;
-    dio.options.connectTimeout = Config.connectTimeout;
+
+    // must comment on this for handling interceptor Error: Bad state: Future already completed
+    // will investigate this in the future for the best practice
+    // dio.options.connectTimeout = Config.connectTimeout;
+
     dio.options.receiveTimeout = Config.receiveTimeout;
     dio.options.headers['content-type'] = 'text/plain';
     dio.options.headers['Authorization'] = "Bearer ${Config.apiKey}";
