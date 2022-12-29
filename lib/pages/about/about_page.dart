@@ -109,13 +109,14 @@ class _AboutPageState extends State<AboutPage> {
 
   Column _listExperienceWidget(
       List<Experience> data, double horizontalExperienceGap) {
+    int no = data.length;
     return Column(
       children: [
         Column(
             children: data
                 .map(
                   (e) => ExperienceItem(
-                    no: e.no.toString(),
+                    no: (no--).toString(),
                     onTap: () {
                       widget.onTap(e);
                     },

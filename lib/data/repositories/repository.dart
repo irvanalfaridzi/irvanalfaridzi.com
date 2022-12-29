@@ -24,12 +24,11 @@ class Repository {
       List<Experience> experiences = [];
       for (var i = 0; i < result.results.length; i++) {
         final data = result.results[i];
-        final no = result.results.length - i;
-        experiences.add(Experience.fromJson(data.resultData, no));
+        experiences.add(Experience.fromJson(data.resultData, i));
       }
 
       // sort data by start join date
-      experiences.sort((a, b) => b.joinDate.compareTo(a.joinDate));
+      experiences.sort((a, b) => b.startDate.compareTo(a.startDate));
 
       return experiences;
     } on DioError catch (e) {

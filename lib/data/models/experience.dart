@@ -1,7 +1,7 @@
 part of 'models.dart';
 
 class Experience {
-  final int no;
+  final int id;
   final String companyName;
   final String role;
   final DateTime startDate;
@@ -16,7 +16,7 @@ class Experience {
   final Color bgImageColor;
 
   Experience({
-    this.no = 0,
+    this.id = 0,
     this.companyName = "",
     this.role = "",
     required this.startDate,
@@ -32,7 +32,7 @@ class Experience {
   });
 
   factory Experience.fromJson(Map<String, dynamic> json, int no) => Experience(
-        no: no,
+        id: no,
         companyName: TitleDataApi.fromJson(json["Company Name"]).value,
         role: RichTextApi.fromJson(json["Role"]).value,
         startDate: JoinDate.fromJson(json["Join Date"]).date.start,
