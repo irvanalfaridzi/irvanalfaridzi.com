@@ -6,7 +6,8 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Future.wait([
-    dotenv.load(),
+    // ERROR: Failed to load resource: the server responded with a status of 404 ()
+    // dotenv.load(),
     setupLocator(),
   ]);
   runApp(const MyApp());
