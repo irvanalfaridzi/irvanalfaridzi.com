@@ -254,3 +254,27 @@ class RichTextApi {
 
   String get value => richText[0].text.content;
 }
+
+class UrlWebsiteApi {
+  UrlWebsiteApi({
+    required this.id,
+    required this.type,
+    required this.url,
+  });
+
+  final String id;
+  final String type;
+  final String url;
+
+  factory UrlWebsiteApi.fromJson(Map<String, dynamic> json) => UrlWebsiteApi(
+        id: json["id"],
+        type: json["type"],
+        url: json["url"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "id": id,
+        "type": type,
+        "url": url,
+      };
+}
