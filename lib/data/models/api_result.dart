@@ -281,3 +281,74 @@ class UrlWebsiteApi {
         "url": url,
       };
 }
+
+class ImageApi {
+  ImageApi({
+    required this.id,
+    required this.type,
+    required this.files,
+  });
+
+  final String id;
+  final String type;
+  final List<FileElementApi> files;
+
+  factory ImageApi.fromJson(Map<String, dynamic> json) => ImageApi(
+        id: json["id"],
+        type: json["type"],
+        files: List<FileElementApi>.from(
+            json["files"].map((x) => FileElementApi.fromJson(x))),
+      );
+
+  Map<String, dynamic> toJson() => {
+        "id": id,
+        "type": type,
+        "files": List<dynamic>.from(files.map((x) => x.toJson())),
+      };
+}
+
+class FileElementApi {
+  FileElementApi({
+    required this.name,
+    required this.type,
+    required this.file,
+  });
+
+  final String name;
+  final String type;
+  final FileApi file;
+
+  factory FileElementApi.fromJson(Map<String, dynamic> json) => FileElementApi(
+        name: json["name"],
+        type: json["type"],
+        file: FileApi.fromJson(json["file"]),
+      );
+
+  Map<String, dynamic> toJson() => {
+        "name": name,
+        "type": type,
+        "file": file.toJson(),
+      };
+
+  String get getUrlImage => file.url;
+}
+
+class FileApi {
+  FileApi({
+    required this.url,
+    required this.expiryTime,
+  });
+
+  final String url;
+  final DateTime expiryTime;
+
+  factory FileApi.fromJson(Map<String, dynamic> json) => FileApi(
+        url: json["url"],
+        expiryTime: DateTime.parse(json["expiry_time"]),
+      );
+
+  Map<String, dynamic> toJson() => {
+        "url": url,
+        "expiry_time": expiryTime.toIso8601String(),
+      };
+}

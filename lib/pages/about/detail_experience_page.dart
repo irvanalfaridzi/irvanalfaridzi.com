@@ -91,28 +91,22 @@ class _DetailExperiencePageState extends State<DetailExperiencePage> {
                 width: double.infinity,
                 height: 300,
                 margin: const EdgeInsets.only(top: 50),
-                decoration: BoxDecoration(
-                  color: widget.experience.bgImageColor,
-                  image: widget.experience.image.isEmpty
-                      ? null
-                      : DecorationImage(
-                          image: AssetImage(
-                            widget.experience.image[0],
-                          ),
-                          fit: BoxFit.scaleDown,
+                color: widget.experience.bgImageColor,
+                child: widget.experience.image.isEmpty
+                    ? const Center(
+                        child: Text(
+                        "no image",
+                        style: TextStyle(color: Colors.black26),
+                      ))
+                    : CachedNetworkImage(
+                        imageUrl: widget.experience.image[0].getUrlImage,
+                        fit: BoxFit.scaleDown,
+                        placeholder: (context, url) =>
+                            Skeleton.experienceImageSkeleton,
+                        errorWidget: (context, url, error) => Image.asset(
+                          "assets/images/empty_image.png",
+                          fit: BoxFit.cover,
                         ),
-                ),
-                child: isLoading
-                    ? Common.loadingWidget
-                    : Container(
-                        color: Colors.transparent,
-                        child: widget.experience.image.isEmpty
-                            ? const Center(
-                                child: Text(
-                                "no image",
-                                style: TextStyle(color: Colors.black26),
-                              ))
-                            : const SizedBox(),
                       ),
               ),
 

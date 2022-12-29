@@ -1,14 +1,19 @@
 part of 'widgets.dart';
 
 class Skeleton {
+  static Widget baseSkeleton({Widget child = const SizedBox()}) =>
+      Shimmer.fromColors(
+        baseColor: Colors.grey[300] ?? Colors.grey,
+        highlightColor: Colors.grey[100] ?? Colors.white54,
+        child: child,
+      );
+
   static Widget experienceSkeleton(double horizontalGap,
           {int skeletonLength = 3}) =>
       Column(
         children: List.generate(
           skeletonLength,
-          (index) => Shimmer.fromColors(
-            baseColor: Colors.grey[300] ?? Colors.grey,
-            highlightColor: Colors.grey[100] ?? Colors.white54,
+          (index) => baseSkeleton(
             child: Column(
               children: [
                 ListTile(
@@ -50,6 +55,14 @@ class Skeleton {
               ],
             ),
           ),
+        ),
+      );
+
+  static Widget get experienceImageSkeleton => baseSkeleton(
+        child: Container(
+          width: double.infinity,
+          height: 300,
+          color: Colors.white,
         ),
       );
 }
