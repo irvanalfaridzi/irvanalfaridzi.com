@@ -58,7 +58,7 @@ class Result {
     required this.cover,
     required this.icon,
     required this.archived,
-    required this.properties,
+    required this.resultData,
     required this.url,
   });
 
@@ -69,7 +69,7 @@ class Result {
   final dynamic cover;
   final dynamic icon;
   final bool archived;
-  final Properties properties;
+  final Map<String, dynamic> resultData;
   final String url;
 
   factory Result.fromJson(Map<String, dynamic> json) => Result(
@@ -80,7 +80,7 @@ class Result {
         cover: json["cover"],
         icon: json["icon"],
         archived: json["archived"],
-        properties: Properties.fromJson(json["properties"]),
+        resultData: json["properties"],
         url: json["url"],
       );
 
@@ -92,49 +92,13 @@ class Result {
         "cover": cover,
         "icon": icon,
         "archived": archived,
-        "properties": properties.toJson(),
+        "properties": resultData,
         "url": url,
       };
 }
 
-class Properties {
-  Properties({
-    required this.joinDate,
-    required this.role,
-    required this.companyName,
-    required this.description,
-  });
-
-  final JoinDate joinDate;
-  final RichTextApi role;
-  final CompanyName companyName;
-  final RichTextApi description;
-
-  factory Properties.fromJson(Map<String, dynamic> json) => Properties(
-        joinDate: JoinDate.fromJson(json["Join Date"]),
-        role: RichTextApi.fromJson(json["Role"]),
-        companyName: CompanyName.fromJson(json["Company Name"]),
-        description: RichTextApi.fromJson(json["Description"]),
-      );
-
-  Map<String, dynamic> toJson() => {
-        "Join Date": joinDate.toJson(),
-        "Role": role.toJson(),
-        "Company Name": companyName.toJson(),
-        "Description": description.toJson(),
-      };
-
-  String get getCompanyName => companyName.title[0].text.content;
-  String get getRole => role.richText[0].text.content;
-  String get getStartDate => DateFormat("MMM yyyy").format(joinDate.date.start);
-  String get getEndDate => joinDate.date.end == null
-      ? "Now"
-      : DateFormat("MMM yyyy").format(joinDate.date.end!);
-  String get getDescription => description.richText[0].text.content;
-}
-
-class CompanyName {
-  CompanyName({
+class TitleDataApi {
+  TitleDataApi({
     required this.id,
     required this.type,
     required this.title,
@@ -144,7 +108,7 @@ class CompanyName {
   final String type;
   final List<TitleApi> title;
 
-  factory CompanyName.fromJson(Map<String, dynamic> json) => CompanyName(
+  factory TitleDataApi.fromJson(Map<String, dynamic> json) => TitleDataApi(
         id: json["id"],
         type: json["type"],
         title:
@@ -156,6 +120,8 @@ class CompanyName {
         "type": type,
         "title": List<dynamic>.from(title.map((x) => x.toJson())),
       };
+
+  String get value => title[0].text.content;
 }
 
 class TitleApi {
@@ -228,6 +194,11 @@ class JoinDate {
         "type": type,
         "date": date.toJson(),
       };
+
+  String get getStartDate => DateFormat("MMM yyyy").format(date.start);
+  String get getEndDate =>
+      date.end == null ? "Now" : DateFormat("MMM yyyy").format(date.end!);
+  String get getJoinDate => "$getStartDate - $getEndDate";
 }
 
 class DateApi {
@@ -280,4 +251,6 @@ class RichTextApi {
         "type": type,
         "rich_text": List<dynamic>.from(richText.map((x) => x.toJson())),
       };
+
+  String get value => richText[0].text.content;
 }

@@ -20,26 +20,18 @@ class Repository {
       // request API
       ApiResult result = apiResultFromJson(json.encode(response.data));
 
-      // sort data by start join date
-      result.results.sort((a, b) => b.properties.joinDate.date.start
-          .compareTo(a.properties.joinDate.date.start));
-
       // changes the data into experience object
-      List<Experience> experience = [];
+      List<Experience> experiences = [];
       for (var i = 0; i < result.results.length; i++) {
         final data = result.results[i];
-        experience.add(
-          Experience(
-            no: result.results.length - i,
-            companyName: data.properties.getCompanyName,
-            role: data.properties.getRole,
-            joinDate:
-                "${data.properties.getStartDate} - ${data.properties.getEndDate}",
-            description: data.properties.getDescription,
-          ),
-        );
+        final no = result.results.length - i;
+        experiences.add(Experience.fromJson(data.resultData, no));
       }
-      return experience;
+
+      // sort data by start join date
+      experiences.sort((a, b) => b.joinDate.compareTo(a.joinDate));
+
+      return experiences;
     } on DioError catch (e) {
       throw Exception(Utility.handleError(e));
     }
