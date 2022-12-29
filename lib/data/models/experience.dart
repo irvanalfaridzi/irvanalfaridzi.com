@@ -40,6 +40,10 @@ class Experience {
         description: RichTextApi.fromJson(json["Description"]).value,
         urlWebsite: UrlWebsiteApi.fromJson(json["URL Website"]).url,
         hashtag: RichTextApi.fromJson(json["Hashtag"]).valueToList,
+        detail: RichTextApi.fromJson(json["Detail"]).value,
+        technologies: RichTextApi.fromJson(json["Technologies"]).value,
+        responsibility:
+            RichTextApi.fromJson(json["Responsibility"]).valueToListDotPattern,
       );
 }
 

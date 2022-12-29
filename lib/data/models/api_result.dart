@@ -254,6 +254,8 @@ class RichTextApi {
 
   String get value => richText[0].text.content;
   List<String> get valueToList => richText[0].text.content.split(", ");
+  List<String> get valueToListDotPattern =>
+      richText[0].text.content.split(". ");
 }
 
 class UrlWebsiteApi {
