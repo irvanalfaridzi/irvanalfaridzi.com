@@ -39,6 +39,7 @@ class Experience {
         joinDate: JoinDate.fromJson(json["Join Date"]).getJoinDate,
         description: RichTextApi.fromJson(json["Description"]).value,
         urlWebsite: UrlWebsiteApi.fromJson(json["URL Website"]).url,
+        hashtag: RichTextApi.fromJson(json["Hashtag"]).valueToList,
       );
 }
 

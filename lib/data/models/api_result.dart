@@ -253,6 +253,7 @@ class RichTextApi {
       };
 
   String get value => richText[0].text.content;
+  List<String> get valueToList => richText[0].text.content.split(", ");
 }
 
 class UrlWebsiteApi {
