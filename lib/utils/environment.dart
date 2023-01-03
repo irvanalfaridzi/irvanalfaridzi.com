@@ -4,17 +4,12 @@ abstract class Environment {
   static const String trueText = "true";
   static bool isTrue(String value) => value == trueText ? true : false;
 
-  // TODO: Do an investigation on why .env can't be accessed in production deployment live
-  // Failed to load resource: the server responded with a status of 404 ()
-
-  static String get apiUrl =>
-      "https://api.notion.com/v1/"; //dotenv.env['API_URL'] ?? 'null';
+  static String get apiUrl => ""; //dotenv.env['API_URL'] ?? 'null';
   static String get apiKey => ""; //dotenv.env['API_KEY'] ?? 'null';
   static String get notionVersion =>
-      "2022-02-22"; //dotenv.env['NOTION_VERSION'] ?? 'null';
+      ""; //dotenv.env['NOTION_VERSION'] ?? 'null';
   static String get techToolsKey => ""; //dotenv.env['TECHTOOLS_KEY'] ?? 'null';
   static String get experienceKey =>
       ""; //dotenv.env['EXPERIENCE_KEY'] ?? 'null';
   static bool get showLog => false; //isTrue(dotenv.env['SHOW_LOG'] ?? 'false');
-
 }
