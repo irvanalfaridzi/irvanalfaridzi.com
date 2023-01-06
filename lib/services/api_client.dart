@@ -9,16 +9,13 @@ class ApiClient {
     dio = Dio();
     dio.options.baseUrl = Config.currentUrl;
 
-    // must comment on this for handling interceptor Error: Bad state: Future already completed
-    // TODO: will investigate this in the future for the best practice
-    // dio.options.connectTimeout = Config.connectTimeout;
-
-    // dio.options.receiveTimeout = Config.receiveTimeout;
     dio.options.headers['Access-Control-Allow-Origin'] = '*';
     dio.options.headers['Access-Control-Allow-Methods'] =
         'GET,PATCH,POST,DELETE';
     dio.options.headers['Access-Control-Allow-Headers'] =
         'Origin, X-Requested-With, Content-Type, Accept';
+    dio.options.headers['origin'] = '';
+    dio.options.headers['x-requested-with'] = '';
     dio.options.headers['Content-Type'] = 'application/json';
     dio.options.headers['Accept'] = 'application/json';
     dio.options.headers['Authorization'] = "Bearer ${Config.apiKey}";
