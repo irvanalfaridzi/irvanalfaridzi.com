@@ -9,8 +9,8 @@ void main() async {
     // You can use the code below if you deploy the web and uncomment line 11
     // We must remove the leading . on env file for being able to use the env in the web deployment
     // For more detail read the note in this link https://pub.dev/packages/flutter_dotenv#usage
-    // dotenv.load(fileName: 'env'),
-    dotenv.load(),
+    dotenv.load(fileName: 'env'),
+    // dotenv.load(),
     setupLocator(),
   ]);
   runApp(const MyApp());
