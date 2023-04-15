@@ -99,7 +99,7 @@ class _DetailExperiencePageState extends State<DetailExperiencePage> {
                         style: TextStyle(color: Colors.black26),
                       ))
                     : CachedNetworkImage(
-                        imageUrl: widget.experience.image[0].getUrlImage,
+                        imageUrl: widget.experience.image[0],
                         fit: BoxFit.scaleDown,
                         placeholder: (context, url) =>
                             Skeleton.experienceImageSkeleton,

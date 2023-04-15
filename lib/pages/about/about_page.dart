@@ -12,7 +12,12 @@ class AboutPage extends StatefulWidget {
 }
 
 class _AboutPageState extends State<AboutPage> {
-  final Repository client = Repository();
+  Future<List<Experience>> getExperienceData() async {
+    List<Experience> list = [];
+    await Future.delayed(const Duration(milliseconds: 500))
+        .whenComplete(() => list = experienceList);
+    return list;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -78,7 +83,7 @@ class _AboutPageState extends State<AboutPage> {
               padding: EdgeInsets.symmetric(
                   horizontal: constraints.maxWidth > 1100 ? 100.0 : 0),
               child: FutureBuilder<List<Experience>>(
-                future: client.getListExperience(),
+                future: getExperienceData(),
                 builder: (context, snapshot) {
                   List<Experience>? data = snapshot.data;
                   if (!snapshot.hasData) {

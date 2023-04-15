@@ -17,7 +17,7 @@ class BasePage extends StatefulWidget {
 class _BasePageState extends State<BasePage> {
   double width = 500;
   NamePage namePage = NamePage.homePage;
-  Experience _experience = Experience(startDate: DateTime.now());
+  Experience _experience = Experience(joinDate: DateTime.now().toString());
   ScrollController scrollController = ScrollController();
 
   // for making scroll position to top of screen
