@@ -13,6 +13,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   bool onHovered = false;
+  bool onHoveredFlutter = false;
+  bool onHoveredVue = false;
 
   @override
   Widget build(BuildContext context) {
@@ -63,8 +65,7 @@ class _HomePageState extends State<HomePage> {
           padding: EdgeInsets.symmetric(horizontal: isDesktopLayout ? 300 : 0),
           child: Text.rich(
             TextSpan(
-              text:
-                  "I'm a Mobile developer using Flutter with 2 years of experience since 2020. Currently Software Development Engineer at ",
+              text: "I'm a Mobile Developer using ",
               style: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w500,
@@ -72,6 +73,74 @@ class _HomePageState extends State<HomePage> {
                 height: 1.5,
               ),
               children: [
+                TextSpan(
+                  text: "Flutter",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.black,
+                    height: 1.5,
+                    decoration:
+                        onHoveredFlutter ? null : TextDecoration.underline,
+                  ),
+                  onEnter: ((event) {
+                    setState(() {
+                      onHoveredFlutter = true;
+                    });
+                  }),
+                  onExit: (event) {
+                    setState(() {
+                      onHoveredFlutter = false;
+                    });
+                  },
+                  recognizer: TapGestureRecognizer()
+                    ..onTap = () async {
+                      launchInBrowser(Constant.urlFlutter);
+                    },
+                ),
+                const TextSpan(
+                  text:
+                      " with almost 3 years of experience since 2020 and start learning web development with ",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.black54,
+                    height: 1.5,
+                  ),
+                ),
+                TextSpan(
+                  text: "VueJS",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.black,
+                    height: 1.5,
+                    decoration: onHoveredVue ? null : TextDecoration.underline,
+                  ),
+                  onEnter: ((event) {
+                    setState(() {
+                      onHoveredVue = true;
+                    });
+                  }),
+                  onExit: (event) {
+                    setState(() {
+                      onHoveredVue = false;
+                    });
+                  },
+                  recognizer: TapGestureRecognizer()
+                    ..onTap = () async {
+                      launchInBrowser(Constant.urlVue);
+                    },
+                ),
+                const TextSpan(
+                  text: ". Currently I'm a Software Development Engineer at ",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.black54,
+                    height: 1.5,
+                  ),
+                ),
                 TextSpan(
                   text: "The Software Practice Singapore",
                   style: TextStyle(
