@@ -24,6 +24,24 @@ class Project {
 
 List<Project> listProject = [
   Project(
+    id: 6,
+    projectName: "Travel App",
+    description:
+        "A Travel App developed with Flutter 💙 version 3. Focusing on UI designed by @nashirjamali, a Travel App implemented Theme features with dark and light themes.",
+    technologies: [
+      "Dart",
+      "Flutter",
+      "Android",
+      "iOS",
+      "Dark Theme",
+      "Light Theme",
+    ],
+    images: ["${Constant.projectImages}mock-travel-app.png"],
+    boxFit: BoxFit.cover,
+    date: DateTime(2023, 8),
+    urlProject: "https://github.com/irvanalfaridzi/travel-app",
+  ),
+  Project(
     id: 5,
     projectName: "Shopcut",
     description:
