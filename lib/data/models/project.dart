@@ -24,7 +24,7 @@ class Project {
 
 List<Project> listProject = [
   Project(
-    id: 6,
+    id: 7,
     projectName: "Travel App",
     description:
         "A Travel App developed with Flutter 💙 version 3. Focusing on UI designed by @nashirjamali, a Travel App implemented Theme features with dark and light themes.",
@@ -40,6 +40,23 @@ List<Project> listProject = [
     boxFit: BoxFit.cover,
     date: DateTime(2023, 8),
     urlProject: "https://github.com/irvanalfaridzi/travel-app",
+  ),
+  Project(
+    id: 6,
+    projectName: "Food App",
+    description:
+        "Food App is Online Food Delivery App developed with Flutter. Created with Flutter 💙 version 3 with a good design source. We are open and welcome any contribution to this project. Go view the project and let's contribute!",
+    technologies: [
+      "Dart",
+      "Flutter",
+      "Android",
+      "iOS",
+      "Collaboration",
+    ],
+    images: ["${Constant.projectImages}mock-food-app.png"],
+    boxFit: BoxFit.cover,
+    date: DateTime(2022, 12),
+    urlProject: "https://github.com/stikom-valley/food-app",
   ),
   Project(
     id: 5,
