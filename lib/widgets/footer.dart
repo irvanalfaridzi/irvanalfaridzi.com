@@ -127,7 +127,7 @@ class MyFooter extends StatelessWidget {
         ),
         const SizedBox(height: 20),
         const Text(
-          "© 2022, made with Flutter by Irvan Alfaridzi",
+          "© 2023, made with Flutter by Irvan Alfaridzi",
           style: TextStyle(
             fontSize: 15,
             fontWeight: FontWeight.w800,

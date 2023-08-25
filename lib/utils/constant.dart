@@ -7,6 +7,8 @@ class Constant {
 
   // URL
   static Uri urlTSP = Uri(scheme: 'https', host: 'thesoftwarepractice.com');
+  static Uri urlVue = Uri(scheme: 'https', host: 'vuejs.org');
+  static Uri urlFlutter = Uri(scheme: 'https', host: 'flutter.dev');
   static Uri urlGithub({String projectName = ""}) => Uri(
       scheme: 'https', host: 'github.com', path: 'irvanalfaridzi/$projectName');
   static Uri urlTwitter =

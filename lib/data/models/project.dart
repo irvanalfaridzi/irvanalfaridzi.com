@@ -24,6 +24,108 @@ class Project {
 
 List<Project> listProject = [
   Project(
+    id: 11,
+    projectName: "Simple Login Registration Vue",
+    description:
+        "Simple login registration with Vue2 that implemented Vuex@3 for state management, tailwind css for the css framework, vue-router@3, vue-resource, local storage and Realtime Database Firebase to simulate CRUD.",
+    technologies: [
+      "Vue",
+      "VueJS",
+      "Web",
+      "Login",
+      "Registration",
+    ],
+    images: ["${Constant.projectImages}mock-simple-login-registration.png"],
+    boxFit: BoxFit.cover,
+    date: DateTime(2023, 8),
+    urlProject: "https://github.com/irvanalfaridzi/simple-login-registration",
+  ),
+  Project(
+    id: 10,
+    projectName: "Todo App",
+    description:
+        "Todo App was developed with VueJs version 2 and uses local storage to store the data.",
+    technologies: [
+      "Vue",
+      "VueJS",
+      "Web",
+      "Todo App",
+    ],
+    images: ["${Constant.projectImages}mock-todo-app.png"],
+    boxFit: BoxFit.cover,
+    date: DateTime(2023, 7),
+    urlProject: "https://github.com/irvanalfaridzi/todo-app-vue2",
+  ),
+  Project(
+    id: 9,
+    projectName: "Calculator Vue",
+    description:
+        "First project developed with VueJS version 2. The goals is to learn how to use methods and v-model.",
+    technologies: [
+      "Vue",
+      "VueJS",
+      "Web",
+      "Calculator",
+    ],
+    images: ["${Constant.projectImages}mock-calculator-vue.png"],
+    boxFit: BoxFit.cover,
+    date: DateTime(2023, 5),
+    urlProject: "https://github.com/irvanalfaridzi/calculator-vue2",
+  ),
+  Project(
+    id: 8,
+    projectName: "Wedding Invitation",
+    description:
+        "A Wedding App developed with Flutter 💙 version 3 and hosted on Vercel. A countdown feature, gallery image, and RSVP feature are stored on a Firestore Database Firebase. Go check the live demo on irvan-safrida.vercel.app or click \"View Project\".",
+    technologies: [
+      "Dart",
+      "Flutter",
+      "Vercel",
+      "Firebase",
+      "Wedding",
+      "Invitation",
+    ],
+    images: ["${Constant.projectImages}mock-wedding-app.png"],
+    boxFit: BoxFit.cover,
+    date: DateTime(2023, 5),
+    urlProject: "https://irvan-safrida.vercel.app",
+  ),
+  Project(
+    id: 7,
+    projectName: "Travel App",
+    description:
+        "A Travel App developed with Flutter 💙 version 3. Focusing on UI designed by @nashirjamali, a Travel App implemented Theme features with dark and light themes.",
+    technologies: [
+      "Dart",
+      "Flutter",
+      "Android",
+      "iOS",
+      "Dark Theme",
+      "Light Theme",
+    ],
+    images: ["${Constant.projectImages}mock-travel-app.png"],
+    boxFit: BoxFit.cover,
+    date: DateTime(2023, 8),
+    urlProject: "https://github.com/irvanalfaridzi/travel-app",
+  ),
+  Project(
+    id: 6,
+    projectName: "Food App",
+    description:
+        "Food App is Online Food Delivery App developed with Flutter. Created with Flutter 💙 version 3 with a good design source. We are open and welcome any contribution to this project. Go view the project and let's contribute!",
+    technologies: [
+      "Dart",
+      "Flutter",
+      "Android",
+      "iOS",
+      "Collaboration",
+    ],
+    images: ["${Constant.projectImages}mock-food-app.png"],
+    boxFit: BoxFit.cover,
+    date: DateTime(2022, 12),
+    urlProject: "https://github.com/stikom-valley/food-app",
+  ),
+  Project(
     id: 5,
     projectName: "Shopcut",
     description:
