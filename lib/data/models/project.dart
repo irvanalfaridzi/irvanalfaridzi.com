@@ -24,6 +24,22 @@ class Project {
 
 List<Project> listProject = [
   Project(
+    id: 10,
+    projectName: "Todo App",
+    description:
+        "Todo App was developed with VueJs version 2 and uses local storage to store the data.",
+    technologies: [
+      "Vue",
+      "VueJS",
+      "Web",
+      "Todo App",
+    ],
+    images: ["${Constant.projectImages}mock-todo-app.png"],
+    boxFit: BoxFit.cover,
+    date: DateTime(2023, 7),
+    urlProject: "https://github.com/irvanalfaridzi/todo-app-vue2",
+  ),
+  Project(
     id: 9,
     projectName: "Calculator Vue",
     description:
