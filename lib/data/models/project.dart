@@ -24,6 +24,24 @@ class Project {
 
 List<Project> listProject = [
   Project(
+    id: 8,
+    projectName: "Wedding Invitation",
+    description:
+        "A Wedding App developed with Flutter 💙 version 3 and hosted on Vercel. A countdown feature, gallery image, and RSVP feature are stored on a Firestore Database Firebase. Go check the live demo on irvan-safrida.vercel.app or click \"View Project\".",
+    technologies: [
+      "Dart",
+      "Flutter",
+      "Vercel",
+      "Firebase",
+      "Wedding",
+      "Invitation",
+    ],
+    images: ["${Constant.projectImages}mock-wedding-app.png"],
+    boxFit: BoxFit.cover,
+    date: DateTime(2023, 5),
+    urlProject: "https://irvan-safrida.vercel.app",
+  ),
+  Project(
     id: 7,
     projectName: "Travel App",
     description:
