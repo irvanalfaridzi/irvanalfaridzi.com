@@ -24,6 +24,23 @@ class Project {
 
 List<Project> listProject = [
   Project(
+    id: 11,
+    projectName: "Simple Login Registration Vue",
+    description:
+        "Simple login registration with Vue2 that implemented Vuex@3 for state management, tailwind css for the css framework, vue-router@3, vue-resource, local storage and Realtime Database Firebase to simulate CRUD.",
+    technologies: [
+      "Vue",
+      "VueJS",
+      "Web",
+      "Login",
+      "Registration",
+    ],
+    images: ["${Constant.projectImages}mock-simple-login-registration.png"],
+    boxFit: BoxFit.cover,
+    date: DateTime(2023, 8),
+    urlProject: "https://github.com/irvanalfaridzi/simple-login-registration",
+  ),
+  Project(
     id: 10,
     projectName: "Todo App",
     description:
