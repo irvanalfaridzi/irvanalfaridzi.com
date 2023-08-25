@@ -24,6 +24,22 @@ class Project {
 
 List<Project> listProject = [
   Project(
+    id: 9,
+    projectName: "Calculator Vue",
+    description:
+        "First project developed with VueJS version 2. The goals is to learn how to use methods and v-model.",
+    technologies: [
+      "Vue",
+      "VueJS",
+      "Web",
+      "Calculator",
+    ],
+    images: ["${Constant.projectImages}mock-calculator-vue.png"],
+    boxFit: BoxFit.cover,
+    date: DateTime(2023, 5),
+    urlProject: "https://github.com/irvanalfaridzi/calculator-vue2",
+  ),
+  Project(
     id: 8,
     projectName: "Wedding Invitation",
     description:
