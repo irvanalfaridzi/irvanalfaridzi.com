@@ -1,8 +1,8 @@
-# [irvanalfaridzi.com](https://irvanalfaridzi.netlify.app/#/)
+# [irvanalfaridzi.com](https://irvanalfaridzi.com)
 
 The source code of my personal website, developed with Flutter 💙
 
-Go check the live version [here](https://irvanalfaridzi.netlify.app/#/) 🤙🏻
+Go check the live version [here](https://irvanalfaridzi.com) 🤙🏻
 
 ## Getting Started
 
