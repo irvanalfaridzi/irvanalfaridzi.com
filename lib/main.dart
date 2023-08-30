@@ -1,5 +1,7 @@
+import 'package:alfaridzi_me/provider/project_provider.dart';
 import 'package:alfaridzi_me/responsive/base_page.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -11,12 +13,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Irvan Alfaridzi',
-      theme: ThemeData(
-        primarySwatch: Colors.grey,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => ProjectProvider())
+      ],
+      child: MaterialApp(
+        title: 'Irvan Alfaridzi',
+        theme: ThemeData(
+          primarySwatch: Colors.grey,
+        ),
+        home: const BasePage(),
       ),
-      home: const BasePage(),
     );
   }
 }
