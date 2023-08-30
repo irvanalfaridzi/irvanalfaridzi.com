@@ -87,12 +87,17 @@ class _ProjectsPageState extends State<ProjectsPage> {
             ),
           ),
           const SizedBox(height: 50),
+          // Filter
+          ProjectFilterBox(constraints: constraints),
+          const SizedBox(height: 50),
           constraints.maxWidth > 1100
               ? Wrap(
                   direction: Axis.horizontal,
                   runSpacing: 20,
                   spacing: 20,
-                  children: listProject
+                  children: context
+                      .watch<ProjectProvider>()
+                      .listOfSearchProject
                       .map(
                         (e) => SizedBox(
                           width: (MediaQuery.of(context).size.width - 152) / 2,
@@ -104,7 +109,9 @@ class _ProjectsPageState extends State<ProjectsPage> {
                       .toList(),
                 )
               : Column(
-                  children: listProject
+                  children: context
+                      .watch<ProjectProvider>()
+                      .listOfSearchProject
                       .map(
                         (e) => Padding(
                           padding: const EdgeInsets.only(bottom: 20.0),
