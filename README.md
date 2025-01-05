@@ -6,7 +6,7 @@ Go check the live version [here](https://irvanalfaridzi.com) 🤙🏻
 
 ## Getting Started
 
-This project was developed with Flutter 3.0.5 💙
+This project was developed with Flutter 3.2.2 💙
 
 A few resources to get you started if this is your first Flutter project:
 
