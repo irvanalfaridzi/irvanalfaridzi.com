@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Irvan Alfaridzi',
         theme: ThemeData(
-          primarySwatch: Colors.grey,
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.grey),
         ),
         home: const BasePage(),
       ),
