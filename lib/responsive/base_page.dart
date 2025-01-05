@@ -8,7 +8,7 @@ import '../widgets/widgets.dart';
 enum NamePage { homePage, aboutPage, projectPage, detailExperiencePage }
 
 class BasePage extends StatefulWidget {
-  const BasePage({Key? key}) : super(key: key);
+  const BasePage({super.key});
 
   @override
   State<BasePage> createState() => _BasePageState();

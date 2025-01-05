@@ -2,8 +2,7 @@ part of 'widgets.dart';
 
 class ProjectFilterBox extends StatelessWidget {
   final BoxConstraints constraints;
-  const ProjectFilterBox({Key? key, required this.constraints})
-      : super(key: key);
+  const ProjectFilterBox({super.key, required this.constraints});
 
   @override
   Widget build(BuildContext context) {

@@ -7,13 +7,13 @@ class ProjectFilterChip extends StatelessWidget {
   final Function(bool)? onSelected;
   final bool selected;
   const ProjectFilterChip({
-    Key? key,
+    super.key,
     this.height = 30,
     required this.urlImage,
     required this.text,
     required this.onSelected,
     this.selected = false,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

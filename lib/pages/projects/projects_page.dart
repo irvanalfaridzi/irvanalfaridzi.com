@@ -1,7 +1,7 @@
 part of '../pages.dart';
 
 class ProjectsPage extends StatefulWidget {
-  const ProjectsPage({Key? key}) : super(key: key);
+  const ProjectsPage({super.key});
 
   @override
   State<ProjectsPage> createState() => _ProjectsPageState();

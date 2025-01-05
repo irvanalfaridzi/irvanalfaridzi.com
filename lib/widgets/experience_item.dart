@@ -6,12 +6,12 @@ class ExperienceItem extends StatelessWidget {
   final Function onTap;
   final double horizontalGap;
   const ExperienceItem({
-    Key? key,
+    super.key,
     required this.no,
     required this.experience,
     required this.onTap,
     this.horizontalGap = 100,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

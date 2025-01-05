@@ -3,9 +3,9 @@ part of '../pages.dart';
 class AboutPage extends StatefulWidget {
   final Function(Experience experience) onTap;
   const AboutPage({
-    Key? key,
+    super.key,
     required this.onTap,
-  }) : super(key: key);
+  });
 
   @override
   State<AboutPage> createState() => _AboutPageState();

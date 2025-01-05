@@ -9,13 +9,13 @@ class MyMainButton extends StatelessWidget {
   final double width;
   final double height;
   const MyMainButton({
-    Key? key,
+    super.key,
     this.buttonMode = ButtonMode.blackTheme,
     required this.onTap,
     required this.child,
     this.width = 230,
     this.height = 60,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -27,12 +27,12 @@ class MyMainButton extends StatelessWidget {
           onTap();
         },
         style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(
+          backgroundColor: WidgetStateProperty.all(
             buttonMode == ButtonMode.blackTheme
                 ? Colors.black
                 : Colors.grey[100],
           ),
-          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+          shape: WidgetStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12.0),
             ),

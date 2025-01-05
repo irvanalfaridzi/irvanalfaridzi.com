@@ -3,9 +3,9 @@ part of 'widgets.dart';
 class MyProjectCard extends StatefulWidget {
   final Project project;
   const MyProjectCard({
-    Key? key,
+    super.key,
     required this.project,
-  }) : super(key: key);
+  });
 
   @override
   State<MyProjectCard> createState() => _MyProjectCardState();

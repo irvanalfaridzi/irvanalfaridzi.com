@@ -6,12 +6,12 @@ class MyFooter extends StatelessWidget {
   final MenuData onAboutPage;
   final MenuData onProjectsPage;
   const MyFooter({
-    Key? key,
+    super.key,
     this.showMenu = true,
     required this.onHomePage,
     required this.onAboutPage,
     required this.onProjectsPage,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
