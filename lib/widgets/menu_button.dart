@@ -5,11 +5,11 @@ class MyMenuButton extends StatelessWidget {
   final Function onTap;
   final bool isSelected;
   const MyMenuButton({
-    Key? key,
+    super.key,
     required this.text,
     required this.onTap,
     this.isSelected = false,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -18,10 +18,10 @@ class MyMenuButton extends StatelessWidget {
         onTap();
       },
       style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all(
+        backgroundColor: WidgetStateProperty.all(
           isSelected ? Colors.white : Colors.transparent,
         ),
-        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+        shape: WidgetStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20.0),
           ),

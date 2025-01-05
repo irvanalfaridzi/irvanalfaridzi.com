@@ -1,7 +1,7 @@
 part of 'widgets.dart';
 
 class ProjectDropdownMenu extends StatelessWidget {
-  const ProjectDropdownMenu({Key? key}) : super(key: key);
+  const ProjectDropdownMenu({super.key});
 
   @override
   Widget build(BuildContext context) {

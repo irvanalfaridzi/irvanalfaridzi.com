@@ -3,9 +3,9 @@ part of '../pages.dart';
 class DetailExperiencePage extends StatefulWidget {
   final Experience experience;
   const DetailExperiencePage({
-    Key? key,
+    super.key,
     required this.experience,
-  }) : super(key: key);
+  });
 
   @override
   State<DetailExperiencePage> createState() => _DetailExperiencePageState();
@@ -210,7 +210,7 @@ class _DetailExperiencePageState extends State<DetailExperiencePage> {
             },
             style: ButtonStyle(
               splashFactory: InkSplash.splashFactory,
-              overlayColor: MaterialStateProperty.all(
+              overlayColor: WidgetStateProperty.all(
                 Colors.blue.withOpacity(0.5),
               ),
             ),
@@ -225,9 +225,9 @@ class _DetailExperiencePageState extends State<DetailExperiencePage> {
                         ),
                       ),
               ),
-              child: Row(
+              child: const Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: const [
+                children: [
                   Icon(
                     Icons.link_sharp,
                     color: Colors.black,

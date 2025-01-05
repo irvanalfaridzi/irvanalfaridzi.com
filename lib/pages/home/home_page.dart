@@ -3,9 +3,9 @@ part of '../pages.dart';
 class HomePage extends StatefulWidget {
   final Function onTap;
   const HomePage({
-    Key? key,
+    super.key,
     required this.onTap,
-  }) : super(key: key);
+  });
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -184,9 +184,9 @@ class _HomePageState extends State<HomePage> {
           onTap: () {
             widget.onTap();
           },
-          child: Row(
+          child: const Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
+            children: [
               Expanded(
                 child: Text(
                   "More about me",

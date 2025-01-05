@@ -2,8 +2,7 @@ part of 'widgets.dart';
 
 class AboutSection extends StatefulWidget {
   final BoxConstraints boxConstraints;
-  const AboutSection({Key? key, required this.boxConstraints})
-      : super(key: key);
+  const AboutSection({super.key, required this.boxConstraints});
 
   @override
   State<AboutSection> createState() => _AboutSectionState();

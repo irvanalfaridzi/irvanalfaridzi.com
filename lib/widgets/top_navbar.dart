@@ -8,14 +8,14 @@ class TopNavBar extends StatelessWidget {
   final MenuData onAboutPage;
   final MenuData onProjectsPage;
   const TopNavBar({
-    Key? key,
+    super.key,
     this.isMobileLayout = false,
     this.isTabletLayout = false,
     required this.onTap,
     required this.onHomePage,
     required this.onAboutPage,
     required this.onProjectsPage,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

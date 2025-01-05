@@ -6,12 +6,12 @@ class MySecondaryButton extends StatelessWidget {
   final FontWeight fontWeight;
   final double fontSize;
   const MySecondaryButton({
-    Key? key,
+    super.key,
     required this.text,
     required this.onTap,
     this.fontWeight = FontWeight.bold,
     this.fontSize = 18,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class MySecondaryButton extends StatelessWidget {
       },
       style: ButtonStyle(
         splashFactory: InkSplash.splashFactory,
-        overlayColor: MaterialStateProperty.all(Colors.grey.withOpacity(0.5)),
+        overlayColor: WidgetStateProperty.all(Colors.grey.withOpacity(0.5)),
       ),
       child: Text(
         text,
